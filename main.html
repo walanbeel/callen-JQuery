@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style type="text/css">
+        textarea {
+          display:block;
+          margin:1em 0;
+         box-shadow: 0 0 3px #2f62d0;
+         
+          /*border-color: #27ae60;*/
+        } 
+        span {
+            font-size: 18px;
+            font-weight: bold;
+            color: #bdbcc5;
+           
+        }
+        label{
+            font-size: 18px;
+            font-weight: bold;
+            color: #bdbcc5; 
+        }
+    </style>  
+
+
+</head>
+<body>
+   
+    <form id="input_form"  method="POST" action="?">
+        <label >Maximum 200 characters</label>
+        <br>
+        <br>
+        <textarea id="textarea" maxlength="200" cols="80" rows="10" ></textarea>
+       
+         <span>Content limited to 200 character</span> <span id="rchars">200</span> <span>Character(s) Remaining</span>
+        </form>
+  
+   <div id="counter"></div>
+<script>
+   $(document).ready(function() {
+    var maxLength = 200;
+$('textarea').keyup(function() {
+  var textlen = maxLength - $(this).val().length;
+  $('#rchars').text(textlen);
+});
+});
+
+</script>   
+</body>
+</html>
